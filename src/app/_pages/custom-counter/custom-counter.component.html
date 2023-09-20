@@ -1,0 +1,16 @@
+<mat-card>
+    <mat-card>
+        <mat-form-field>
+            <mat-label>Custom input</mat-label>
+            <input matInput [(ngModel)]="customValue" />            
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Select Action</mat-label>
+            <mat-select [(ngModel)]="actionType">
+                <mat-option value="Add">Increment</mat-option>
+                <mat-option value="Minus">Decrement</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <button mat-raised-button color="primary" (click)="onIncrement()" >Proceed</button>
+    </mat-card>
+</mat-card>
