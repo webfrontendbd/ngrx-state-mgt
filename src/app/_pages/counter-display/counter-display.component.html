@@ -1,6 +1,11 @@
-<mat-card>
-    <mat-card-content>
-        <h1>{{(counter$ | async).name}}</h1>
-        <h2>Counter value is : {{(counter$ | async).value}}</h2>
-    </mat-card-content>
-</mat-card>
+<div style="width:400px; margin: 0 auto;" class="text-center">
+
+    <app-counter-button></app-counter-button>
+    <mat-card>
+        <mat-card-content>
+            <h1>{{(counter$ | async).name}}</h1>
+            <h2>Counter value is : {{(counter$ | async).value}}</h2>
+        </mat-card-content>
+    </mat-card>
+    <app-custom-counter></app-custom-counter>
+</div>

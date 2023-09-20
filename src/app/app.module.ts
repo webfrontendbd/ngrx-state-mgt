@@ -14,9 +14,11 @@ import { CustomCounterComponent } from './_pages/custom-counter/custom-counter.c
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { blogReducer } from './store/blog/blog.reducer';
 import { BlogComponent } from './_pages/blog/blog.component';
+import { NavComponent } from './nav/nav.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
-  declarations: [AppComponent, CounterButtonComponent, CounterDisplayComponent, CustomCounterComponent, BlogComponent],
+  declarations: [AppComponent, CounterButtonComponent, CounterDisplayComponent, CustomCounterComponent, BlogComponent, NavComponent, NotFoundComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
