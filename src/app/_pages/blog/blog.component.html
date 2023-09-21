@@ -1,9 +1,12 @@
-<table class="table">
-    <thead>
-        <tr>
-            <th>SL</th>
-            <th>Title</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-</table>
+<div style="text-align: center; width: 600px;margin:0 auto">
+    <button mat-raised-button color="accent" (click)="addBlog()">Add New Blog</button>
+    <mat-card *ngFor="let blog of blogList; let i=index;">
+        <mat-card-header>
+            <h2><a href="#">{{blog.id +' '+blog.title}}</a> </h2>
+            <button mat-raised-button color="primary" (click)="editBlog(blog.id)" >Edit</button>
+        </mat-card-header>
+        <mat-card-content>
+            <p>{{blog.description}}</p>
+        </mat-card-content>
+    </mat-card>
+</div>

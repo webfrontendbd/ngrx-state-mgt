@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable, Subscription } from 'rxjs';
 import { Counter } from 'src/app/_models/counter';
+import { AppStateModel } from 'src/app/store/global/app.state.model';
 
 @Component({
   selector: 'app-counter-display',
@@ -13,7 +14,7 @@ export class CounterDisplayComponent implements OnInit, OnDestroy {
   orgname: string;
   counterSubscription: Subscription;
   counter$:Observable<Counter>;
-  constructor(private store: Store<{ counter: Counter }>) {}
+  constructor(private store: Store<AppStateModel>) {}
 
   
   ngOnInit() {

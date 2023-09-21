@@ -1,0 +1,29 @@
+<form [formGroup]="blogform" (ngSubmit)="saveBlog()">
+    <mat-card>
+        <mat-card-header>
+            <h2>{{pageTitle}}</h2>
+        </mat-card-header>
+        <mat-card-content>
+            <mat-grid-list cols="4">
+                <mat-form-field>
+                    <mat-label>Title</mat-label>
+                    <input matInput formControlName="title" />
+                </mat-form-field>
+            </mat-grid-list>
+
+            <mat-grid-list cols="4">
+                <mat-form-field>
+                    <mat-label>Description</mat-label>
+                    <textarea matInput formControlName="description"></textarea>
+                </mat-form-field>
+            </mat-grid-list>
+
+
+            <mat-card-actions align="end">
+                <button mat-raised-button color="warn" (click)="closeDialog()">Cancel</button>
+                <button type="submit" mat-raised-button color="primary">Save</button>
+            </mat-card-actions>
+        </mat-card-content>
+    </mat-card>
+
+</form>
