@@ -1,0 +1,21 @@
+<mat-grid-list cols="4">
+    <button style="margin-top:15px;" mat-raised-button color="primary" (click)="addStyle()" ><mat-icon fontIcon="grade" ></mat-icon> Add New Style (+)</button>
+    <mat-grid-tile *ngFor="let style of styleList">
+        <mat-card>
+            <mat-card-header>
+                <h2>{{style.styleName | uppercase}}</h2>
+            </mat-card-header>
+            <mat-card-content>
+                <p>Job ID : {{style.id}}</p>
+                <p>Email : {{style.buyerName}}</p>
+                <p>Gender : {{style.gender}}</p>
+                <p>Created By : {{style.createdBy | uppercase}}</p>
+                <p>Created At : {{style.created}}</p>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-raised-button color="primary" (click)="editStyle(style.id)" >Edit</button>
+                <button mat-raised-button color="warn" (click)="deleteStyle(style.id)" >Delete</button>
+            </mat-card-actions>
+        </mat-card>
+    </mat-grid-tile>
+</mat-grid-list>

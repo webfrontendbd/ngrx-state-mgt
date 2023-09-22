@@ -1,0 +1,21 @@
+<mat-grid-list cols="4">
+    <button style="margin-top:15px;" mat-raised-button color="primary" (click)="addBlog()" ><mat-icon fontIcon="person" ></mat-icon> Add New Employee (+)</button>
+    <mat-grid-tile *ngFor="let emp of employeeList">
+        <mat-card>
+            <mat-card-header>
+                <h2>{{emp.name | uppercase}}</h2>
+            </mat-card-header>
+            <mat-card-content>
+                <p>Job ID : {{emp.id}}</p>
+                <p>Email : {{emp.email}}</p>
+                <p>Phone : {{emp.phone}}</p>
+                <p>City : {{emp.city}}</p>
+                <p>Salary : {{emp.salary}}</p>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-raised-button color="primary" (click)="editEmployee(emp.id)" >Edit</button>
+                <button mat-raised-button color="warn" (click)="deleteEmployee(emp.id)" >Delete</button>
+            </mat-card-actions>
+        </mat-card>
+    </mat-grid-tile>
+</mat-grid-list>

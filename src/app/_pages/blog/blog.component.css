@@ -1,3 +1,6 @@
 .mdc-card {
     margin: 15px;
 }
+.mdc-button{
+    margin:0 2px;
+}

@@ -5,6 +5,7 @@ import { Blog } from 'src/app/_models/blog';
 import { getBlog } from 'src/app/store/blog/blog.selector';
 import { AppStateModel } from 'src/app/store/global/app.state.model';
 import { AddBlogComponent } from './add-blog/add-blog.component';
+import { deleteBlog } from 'src/app/store/blog/blog.actions';
 
 @Component({
   selector: 'app-blog',
@@ -37,5 +38,11 @@ export class BlogComponent implements OnInit {
 
   editBlog(id: any) {
     this.openDialog(id,'Edit Blog', true);
+  }
+
+  deleteBlog(id:any){
+    if(confirm("Are you sure to delete this?")){
+      this.store.dispatch(deleteBlog({id:id}));
+    }
   }
 }
