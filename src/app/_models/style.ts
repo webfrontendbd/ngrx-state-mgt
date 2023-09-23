@@ -15,4 +15,5 @@ export interface Style {
 
 export interface Styles {
   styleList: Style[];
+  errorText:string;
 }

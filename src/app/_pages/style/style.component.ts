@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
-import { Style } from 'src/app/_models/style';
+import { Style, Styles } from 'src/app/_models/style';
 import { AppStateModel } from 'src/app/store/global/app.state.model';
-import { getStyles } from 'src/app/store/style/style.selectors';
+import { getStyleInfo, getStyles } from 'src/app/store/style/style.selectors';
 import { AddStyleComponent } from './add-style/add-style.component';
 import { deleteStyle, loadStyle } from 'src/app/store/style/style.actions';
 
@@ -14,12 +14,14 @@ import { deleteStyle, loadStyle } from 'src/app/store/style/style.actions';
 })
 export class StyleComponent implements OnInit {
   styleList: Style[];
+  styleInfo:Styles;
   constructor(private store: Store<AppStateModel>, private dialog: MatDialog) {}
   ngOnInit() {    
     this.store.dispatch(loadStyle());
-    this.store.select(getStyles).subscribe({
+    this.store.select(getStyleInfo).subscribe({
       next: (response) => {
-        this.styleList = response;
+        //this.styleList = response;
+        this.styleInfo = response
       },
     });
   }

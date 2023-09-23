@@ -11,3 +11,7 @@ export const getStyleById = (id: number) =>
   createSelector(getStyleState, (state) => {
     return state.styleList.find((style) => style.id === id);
   });
+
+  export const getStyleInfo = createSelector(getStyleState, (state) => {
+    return state;
+  });
