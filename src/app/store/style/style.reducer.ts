@@ -13,6 +13,14 @@ export const _styleReducer = createReducer(
     return {
       ...state,
       styleList: [...action.style],
+      errorText:''
+    };
+  }),
+  on(StyleActions.loadStyleFail, (state, action) => {
+    return {
+      ...state,
+      styleList: [],
+      errorText: action.errorText,
     };
   }),
   on(StyleActions.addStyle, (state, action) => {

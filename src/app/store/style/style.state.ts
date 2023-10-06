@@ -17,4 +17,5 @@ export const StyleState: Styles = {
       seasons: [],
     },
   ],
+  errorText:''
 };

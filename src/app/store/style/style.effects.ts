@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { StyleService } from 'src/app/_services/style.service';
-import { LOAD_STYLE, loadStyleSuccess } from './style.actions';
-import { EMPTY, catchError, exhaustMap, map } from 'rxjs';
+import { LOAD_STYLE, loadStyleFail, loadStyleSuccess } from './style.actions';
+import { catchError, exhaustMap, map, of } from 'rxjs';
 
 @Injectable()
 export class StyleEffects {
@@ -15,7 +15,7 @@ export class StyleEffects {
           map((styles) => {
             return loadStyleSuccess({ style: styles });
           }),
-          catchError(() => EMPTY)
+          catchError((error) => of(loadStyleFail({ errorText: error.message })))
         )
       )
     )

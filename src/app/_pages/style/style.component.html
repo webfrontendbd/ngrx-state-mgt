@@ -1,21 +1,38 @@
-<mat-grid-list cols="4">
-    <button style="margin-top:15px;" mat-raised-button color="primary" (click)="addStyle()" ><mat-icon fontIcon="grade" ></mat-icon> Add New Style (+)</button>
-    <mat-grid-tile *ngFor="let style of styleList">
-        <mat-card>
-            <mat-card-header>
-                <h2>{{style.styleName | uppercase}}</h2>
-            </mat-card-header>
-            <mat-card-content>
-                <p>Job ID : {{style.id}}</p>
-                <p>Email : {{style.buyerName}}</p>
-                <p>Gender : {{style.gender}}</p>
-                <p>Created By : {{style.createdBy | uppercase}}</p>
-                <p>Created At : {{style.created}}</p>
-            </mat-card-content>
-            <mat-card-actions>
-                <button mat-raised-button color="primary" (click)="editStyle(style.id)" >Edit</button>
-                <button mat-raised-button color="warn" (click)="deleteStyle(style.id)" >Delete</button>
-            </mat-card-actions>
-        </mat-card>
-    </mat-grid-tile>
-</mat-grid-list>
+<div *ngIf="!styleInfo.errorText">
+    <mat-card *ngIf="!styleInfo.styleList.length">
+        <mat-card-content>
+            <p>No Style Found</p>
+        </mat-card-content>
+    </mat-card>
+
+    <mat-grid-list cols="4">
+        <button style="margin-top:15px;" mat-raised-button color="primary" (click)="addStyle()"><mat-icon
+                fontIcon="grade"></mat-icon> Add New Style (+)</button>
+        <mat-grid-tile *ngFor="let style of styleInfo.styleList">
+            <mat-card>
+                <mat-card-header>
+                    <h2>{{style.styleName | uppercase}}</h2>
+                </mat-card-header>
+                <mat-card-content>
+                    <p>Job ID : {{style.id}}</p>
+                    <p>Email : {{style.buyerName}}</p>
+                    <p>Gender : {{style.gender}}</p>
+                    <p>Created By : {{style.createdBy | uppercase}}</p>
+                    <p>Created At : {{style.created}}</p>
+                </mat-card-content>
+                <mat-card-actions>
+                    <button mat-raised-button color="primary" (click)="editStyle(style.id)">Edit</button>
+                    <button mat-raised-button color="warn" (click)="deleteStyle(style.id)">Delete</button>
+                </mat-card-actions>
+            </mat-card>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>
+<mat-card *ngIf="styleInfo.errorText">
+    <mat-card-header>
+        <h2>Error Occured</h2>
+        </mat-card-header>
+    <mat-card-content>
+        <p style="color:red;">{{styleInfo.errorText}}</p>
+    </mat-card-content>
+</mat-card>
