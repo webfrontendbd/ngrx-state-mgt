@@ -6,7 +6,7 @@ export const _styleReducer = createReducer(
   StyleState,
   on(StyleActions.loadStyle, (state) => {
     return {
-      ...state,
+      ...state
     };
   }),
   on(StyleActions.loadStyleSuccess, (state, action) => {
